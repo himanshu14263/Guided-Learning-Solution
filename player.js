@@ -12,6 +12,16 @@
 // index added to iterate over steps
 var index = 0;
 
+
+// function to find the coordinates of given element
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}
+
 // adding function to create tooltip
 function createTooltip(selector, content, deltaLeft, deltaTop) {
 
@@ -55,6 +65,18 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
     $('<div id="hola" class="tooltip"><button class="closeButton">x</button><br>' + content + '\n</div>')
         .appendTo('body');
     $(".tooltip").css(tooltipCss);
+
+    let coor;
+    if (selector === 'a.gb_g' || selector === 'div.SDkEP')
+        coor = getOffset(document.querySelector(selector))
+    else
+        coor = getOffset(document.getElementById(selector))
+
+    var d = document.getElementById('hola')
+    d.style.position = "absolute";
+    d.style.left = coor.left + deltaLeft + 'px';
+    d.style.top = coor.top + deltaTop + 'px';
+
 }
 
 
