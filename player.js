@@ -9,8 +9,37 @@
 // ==/UserScript==
 
 
+// index added to iterate over steps
+var index = 0;
+
 // adding function to create tooltip
 function createTooltip(selector, content, deltaLeft, deltaTop) {
+
+    const stepsArray = [{
+            "selector": "hplogo",
+            "content": "<p>Welcome to <em><strong>Google</strong></em>!</p>\n",
+            "deltaLeft": 0,
+            "deltaTop": -15
+        },
+        {
+            "selector": "a.gb_g",
+            "content": "<p>Click <strong>Images</strong> to go to images section</p>\n",
+            "deltaLeft": 0,
+            "deltaTop": 20
+        },
+        {
+            "selector": "div.SDkEP",
+            "content": "<p>Enter a search query here and click ENTER!</p>\n",
+            "deltaLeft": 50,
+            "deltaTop": 45
+        },
+        {
+            "selector": "SIvCob",
+            "content": "<p>Click here to <b>search</b></p>\n",
+            "deltaLeft": 120,
+            "deltaTop": -30
+        }
+    ];
 
     const tooltipCss = {
         "margin": "8px",
@@ -81,5 +110,9 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
             }
         ];
     }
+
+
+    // function called to create Tooltip
+    createTooltip(stepsArray[index].selector, stepsArray[index].content, stepsArray[index].deltaLeft, stepsArray[index].deltaTop);
 
 })();
