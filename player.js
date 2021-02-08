@@ -67,9 +67,47 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
         "border-radius": "5px"
     };
 
+    // css for next and previous button
+    const buttonCss = {
+        "background-color": "#4CAF50",
+        "border": "none",
+        "color": " white",
+        "padding": "5px 10px",
+        "margin-left": "5px",
+        "text-align": "center",
+        "text-decoration": "none",
+        "display": "inline-block",
+        "border-radius": "5px"
+    }
+
+    // css for close button
+    const closeButtonCss = {
+        "background-color": "#4CAF50",
+        "color": " white",
+        "padding": "0px 3px 0px 3px",
+        "display": "inline-block",
+        "position": "absolute",
+        "top": 2,
+        "right": 2
+    }
+
+    // creating tooltip
     $('<div id="hola" class="tooltip"><button class="closeButton">x</button><br>' + content + '\n</div>')
         .appendTo('body');
     $(".tooltip").css(tooltipCss);
+
+
+    // creating previous button
+    if (index != 0) $('<button class="prevButton"><-prev</button></div>').appendTo('#hola')
+
+    // creating next button
+    if (index != 3) $('<button class="nextButton">next-></button></div>').appendTo('#hola')
+
+    // adding css to buttons
+    $(".prevButton").css(buttonCss);
+    $(".nextButton").css(buttonCss);
+    $(".closeButton").css(closeButtonCss);
+
 
     let coor;
     if (selector === 'a.gb_g' || selector === 'div.SDkEP')
