@@ -108,13 +108,39 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
     $(".nextButton").css(buttonCss);
     $(".closeButton").css(closeButtonCss);
 
+    // function to execute on prev button click
+    $('.tooltip').on("click", '.prevButton', function() {
+        console.log("PrevClicked");
+        removeTooltip();
+        if (index > 0) index = index - 1;
+        createTooltip(stepsArray[index].selector, stepsArray[index].content, stepsArray[index].deltaLeft, stepsArray[index].deltaTop);
 
+    });
+
+    // function to execute on next button click
+    $('.tooltip').on("click", '.nextButton', function() {
+        console.log("NextClicked");
+
+        removeTooltip();
+        if (index < 3) index = index + 1;
+        createTooltip(stepsArray[index].selector, stepsArray[index].content, stepsArray[index].deltaLeft, stepsArray[index].deltaTop);
+
+    });
+
+    // function to execute on close button click
+    $('.tooltip').on("click", '.closeButton', function() {
+        removeTooltip();
+    });
+
+
+    // finding coordinates of current element
     let coor;
     if (selector === 'a.gb_g' || selector === 'div.SDkEP')
         coor = getOffset(document.querySelector(selector))
     else
         coor = getOffset(document.getElementById(selector))
 
+    // positioning at correct location
     var d = document.getElementById('hola')
     d.style.position = "absolute";
     d.style.left = coor.left + deltaLeft + 'px';
