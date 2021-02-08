@@ -8,6 +8,27 @@
 // @grant        none
 // ==/UserScript==
 
+
+// adding function to create tooltip
+function createTooltip(selector, content, deltaLeft, deltaTop) {
+
+    const tooltipCss = {
+        "margin": "8px",
+        "padding": "10px",
+        "border": "1px solid black",
+        "background-color": "black",
+        "position": "absolute",
+        "color": "white",
+        "z-index": 5,
+        "border-radius": "5px"
+    };
+
+    $('<div id="hola" class="tooltip"><button class="closeButton">x</button><br>' + content + '\n</div>')
+        .appendTo('body');
+    $(".tooltip").css(tooltipCss);
+}
+
+
 (function() {
     'use strict';
 
