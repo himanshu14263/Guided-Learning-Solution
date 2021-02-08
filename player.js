@@ -56,6 +56,7 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
         }
     ];
 
+    // css added for tooltip
     const tooltipCss = {
         "margin": "8px",
         "padding": "10px",
@@ -201,10 +202,10 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
                 "deltaTop": -30
             }
         ];
+
+
+        // function called to create Tooltip
+        createTooltip(stepsArray[index].selector, stepsArray[index].content, stepsArray[index].deltaLeft, stepsArray[index].deltaTop);
     }
-
-
-    // function called to create Tooltip
-    createTooltip(stepsArray[index].selector, stepsArray[index].content, stepsArray[index].deltaLeft, stepsArray[index].deltaTop);
 
 })();
