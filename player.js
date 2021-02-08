@@ -2,9 +2,8 @@
 // @name         GLS
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @description  try to take over the world!
-// @downloadURL  https://gist.github.com/himanshu14263/9b0855095d8e670b6843509778f1e1d0/raw/417a047eb394330bb3daba969a3c607b576b85ba/player.js
-// @author       You
+// @description  script to show the GLS
+// @author       Himanshu Singh
 // @match        https://www.google.com
 // @grant        none
 // ==/UserScript==
