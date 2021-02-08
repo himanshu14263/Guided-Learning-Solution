@@ -22,6 +22,11 @@ function getOffset(el) {
     };
 }
 
+// function to remove Tooltip
+function removeTooltip() {
+    $('div.tooltip').remove();
+};
+
 // adding function to create tooltip
 function createTooltip(selector, content, deltaLeft, deltaTop) {
 
@@ -81,6 +86,7 @@ function createTooltip(selector, content, deltaLeft, deltaTop) {
 
 
 (function() {
+
     'use strict';
 
     // code to insert jquery in this file.
